@@ -54,15 +54,15 @@ msbuild VsOrcaNotes.sln -restore -p:Configuration=Release
 
 私有仓库需在创建策略后 48 小时内推送首个发布标签，首次成功交换令牌后策略会永久激活。若已过期，可在 Marketplace 重新开启。[策略激活说明](https://developer.microsoft.com/blog/trusted-publishing-visual-studio-marketplace/#github-policy-lifecycle)
 
-Marketplace 上的扩展标识为 `<Publisher ID>.OrcaCodeNotes`，公开展示名为 **Orca Code Notes**。商店介绍见 [Marketplace 说明](docs/marketplace.md)。
+本项目的 Publisher ID 为 `CNEStyle`，发布者显示名称为 `CN_EStyle`。VSIX 清单的 `Identity.Publisher` 必须与显示名称一致。Marketplace 上的扩展标识为 `CNEStyle.OrcaCodeNotes`，公开展示名为 **Orca Code Notes**。商店介绍见 [Marketplace 说明](docs/marketplace.md)。
 
 ### 发布一个版本
 
-将目标版本填入 [VSIX 清单](OrcaNotes/source.extension.vsixmanifest) 中的 `Identity.Version`，提交并推送。然后在同一提交上推送对应的版本标签。例如，清单版本为 `0.1.9` 时运行以下命令。
+将目标版本填入 [VSIX 清单](OrcaNotes/source.extension.vsixmanifest) 中的 `Identity.Version`，提交并推送。然后在同一提交上推送对应的版本标签。例如，清单版本为 `0.1.10` 时运行以下命令。
 
 ```powershell
-git tag v0.1.9
-git push origin v0.1.9
+git tag v0.1.10
+git push origin v0.1.10
 ```
 
 **Release VSIX** 工作流会构建并测试，核对标签、源码清单和 VSIX 内的版本，随后创建 GitHub Release，并将同一安装包提交到 Marketplace。若 GitHub Release 已成功而 Marketplace 发布失败，修复配置后在该次运行中选择 **Re-run failed jobs**，即可复用已构建的安装包。

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
   <Metadata>
-    <Identity Id="VsOrcaNotes.36312d9d-856a-4f65-bbf0-1cc027bcfa37" Version="0.1.9" Language="en-US" Publisher="VS Orca Notes" />
+    <Identity Id="VsOrcaNotes.36312d9d-856a-4f65-bbf0-1cc027bcfa37" Version="0.1.10" Language="en-US" Publisher="CN_EStyle" />
     <DisplayName>Orca Code Notes</DisplayName>
     <Description>Add review notes beside your code and send file paths, line numbers, and comments to an Orca AI session in the current workspace.</Description>
   </Metadata>
