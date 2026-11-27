@@ -109,6 +109,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+          ref: ${{ inputs.marketplace_tag && format('refs/tags/{0}', inputs.marketplace_tag) || github.sha }}
       - name: Prepare Marketplace listing
         env:
           VS_MARKETPLACE_PUBLISHER: ${{ vars.VS_MARKETPLACE_PUBLISHER }}
@@ -122,11 +123,6 @@ jobs:
               identity = @{ internalName = 'OrcaCodeNotes' }
               categories = @('coding')
               overview = (Resolve-Path 'docs/marketplace.md').Path
-              assetFiles = @(
-                  'add-note.png', 'preview.png', 'send-note.png' | ForEach-Object {
-                      @{ pathOnDisk = (Resolve-Path "docs/$_").Path; targetPath = $_ }
-                  }
-              )
               private = $false
               repo = "$env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY"
           } | ConvertTo-Json -Depth 3 | Set-Content -LiteralPath $manifest -Encoding utf8
