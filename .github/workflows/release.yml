@@ -90,6 +90,7 @@ jobs:
       id-token: write
     steps:
       - name: Download and verify published installer
+        id: installer
         env:
           TAG: ${{ inputs.marketplace_tag || github.ref_name }}
           GH_REPO: ${{ github.repository }}
@@ -104,21 +105,18 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           $payload = Join-Path "$env:RUNNER_TEMP/package" $asset
           if ("sha256:$((Get-FileHash $payload -Algorithm SHA256).Hash)" -ne $expected) { throw 'Release asset SHA-256 mismatch.' }
-          "VSIX_PAYLOAD=$payload" >> $env:GITHUB_ENV
+          "path=$payload" >> $env:GITHUB_OUTPUT
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
           ref: ${{ inputs.marketplace_tag && format('refs/tags/{0}', inputs.marketplace_tag) || github.sha }}
-      - name: Install VsixPublisher with OIDC support
-        run: nuget install Microsoft.VSSDK.BuildTools -Version 18.12.1606 -Source https://api.nuget.org/v3/index.json -OutputDirectory "$env:RUNNER_TEMP/tools" -ExcludeVersion -NonInteractive
-      - name: Publish verified VSIX
+      - name: Prepare Marketplace listing
         env:
           VS_MARKETPLACE_PUBLISHER: ${{ vars.VS_MARKETPLACE_PUBLISHER }}
         run: |
           if (!$env:VS_MARKETPLACE_PUBLISHER) {
               throw 'Set the VS_MARKETPLACE_PUBLISHER repository variable to the Marketplace publisher ID.'
           }
-          $publisher = Join-Path $env:RUNNER_TEMP 'tools/Microsoft.VSSDK.BuildTools/tools/vssdk/bin/lib/VsixPublisher.exe'
           $manifest = Join-Path $env:RUNNER_TEMP 'vs-publish.json'
           @{
               publisher = $env:VS_MARKETPLACE_PUBLISHER
@@ -128,15 +126,9 @@ jobs:
               private = $false
               repo = "$env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY"
           } | ConvertTo-Json -Depth 3 | Set-Content -LiteralPath $manifest -Encoding utf8
-          # VsixPublisher's native exchange omits api-version (microsoft/vsmarketplace#2310).
-          $oidcUrl = [UriBuilder]::new($env:ACTIONS_ID_TOKEN_REQUEST_URL)
-          $oidcUrl.Query = ($oidcUrl.Query.TrimStart('?') + '&audience=marketplace.visualstudio.com').TrimStart('&')
-          $jwt = (Invoke-RestMethod $oidcUrl.Uri -Headers @{ Authorization = "Bearer $env:ACTIONS_ID_TOKEN_REQUEST_TOKEN" }).value
-          if (!$jwt) { throw 'GitHub did not issue an OIDC token.' }
-          Write-Output "::add-mask::$jwt"
-          $body = @{ publisherName = $env:VS_MARKETPLACE_PUBLISHER } | ConvertTo-Json -Compress
-          $grant = Invoke-RestMethod 'https://marketplace.visualstudio.com/_apis/gallery/token?api-version=7.2-preview.1' -Method Post -Headers @{ Authorization = "FederatedToken $jwt" } -ContentType 'application/json' -Body $body
-          if (!$grant.credential) { throw 'Marketplace did not issue a publishing credential.' }
-          Write-Output "::add-mask::$($grant.credential)"
-          & $publisher publish -payload $env:VSIX_PAYLOAD -publishManifest $manifest -personalAccessToken $grant.credential
-          exit $LASTEXITCODE
+      - name: Publish verified VSIX with OIDC
+        uses: madskristensen/publish-marketplace@361d1d0c6107ce1ddcd331c9767ea0a4f9ec79d5 # v2.2.2
+        with:
+          extension-file: ${{ steps.installer.outputs.path }}
+          publish-manifest-file: ${{ runner.temp }}/vs-publish.json
+          oidc: 'true'
