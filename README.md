@@ -67,4 +67,4 @@ git push origin v0.1.10
 
 **Release VSIX** 工作流会构建并测试，核对标签、源码清单和 VSIX 内的版本，随后创建 GitHub Release，并将同一安装包提交到 Marketplace。若 GitHub Release 已成功而 Marketplace 发布失败，修复配置后在该次运行中选择 **Re-run failed jobs**，即可复用已构建的安装包。
 
-要试跑构建，在 **Actions → Release VSIX → Run workflow** 选择分支，将 `marketplace_tag` 留空，即可测试并下载名为 `vsix` 的 Actions artifact。若需使用更新后的发布流程补发 Marketplace，选择 `main` 并填写已发布的标签（如 `v0.1.9`）。工作流会下载该 GitHub Release 的原始安装包、核对 SHA-256，再提交到 Marketplace。
+要试跑构建，在 **Actions → Release VSIX → Run workflow** 选择分支，将 `marketplace_tag` 留空，即可测试并下载名为 `vsix` 的 Actions artifact。要更新已发布版本的商店说明或截图，选择 `main` 并填写对应的发布标签（如 `v0.1.10`）。工作流会校验该 GitHub Release 的原始安装包，并使用本次运行的 `main` 提交中的说明和截图更新 Marketplace。
