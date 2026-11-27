@@ -76,6 +76,9 @@ jobs:
     name: Publish Visual Studio Marketplace
     needs: [build, github-release]
     runs-on: windows-2022
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -84,19 +87,15 @@ jobs:
         with:
           name: vsix
           path: dist
-      - name: Install project version of VsixPublisher
-        run: |
-          [xml]$project = Get-Content -Raw OrcaNotes/OrcaNotes.csproj
-          $version = ($project.Project.ItemGroup.PackageReference | Where-Object Include -eq 'Microsoft.VSSDK.BuildTools').Version
-          nuget install Microsoft.VSSDK.BuildTools -Version $version -Source https://api.nuget.org/v3/index.json -OutputDirectory "$env:RUNNER_TEMP/tools" -ExcludeVersion -NonInteractive
+      - name: Install VsixPublisher with OIDC support
+        run: nuget install Microsoft.VSSDK.BuildTools -Version 18.12.1606 -Source https://api.nuget.org/v3/index.json -OutputDirectory "$env:RUNNER_TEMP/tools" -ExcludeVersion -NonInteractive
       - name: Publish verified VSIX
         env:
           VS_MARKETPLACE_PUBLISHER: ${{ vars.VS_MARKETPLACE_PUBLISHER }}
-          VS_MARKETPLACE_PAT: ${{ secrets.VS_MARKETPLACE_PAT }}
           ASSET: ${{ needs.build.outputs.asset }}
         run: |
-          if (!$env:VS_MARKETPLACE_PUBLISHER -or !$env:VS_MARKETPLACE_PAT) {
-              throw 'Set the VS_MARKETPLACE_PUBLISHER repository variable and VS_MARKETPLACE_PAT repository secret.'
+          if (!$env:VS_MARKETPLACE_PUBLISHER) {
+              throw 'Set the VS_MARKETPLACE_PUBLISHER repository variable to the Marketplace publisher ID.'
           }
           $publisher = Join-Path $env:RUNNER_TEMP 'tools/Microsoft.VSSDK.BuildTools/tools/vssdk/bin/lib/VsixPublisher.exe'
           $payload = (Resolve-Path "dist/$env:ASSET").Path
@@ -109,5 +108,5 @@ jobs:
               private = $false
               repo = "$env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY"
           } | ConvertTo-Json -Depth 3 | Set-Content -LiteralPath $manifest -Encoding utf8
-          & $publisher publish -payload $payload -publishManifest $manifest -personalAccessToken $env:VS_MARKETPLACE_PAT
+          & $publisher publish -payload $payload -publishManifest $manifest -oidc
           exit $LASTEXITCODE

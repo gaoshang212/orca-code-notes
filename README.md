@@ -40,13 +40,10 @@ msbuild VsOrcaNotes.sln -restore -p:Configuration=Release
 ### 首次配置
 
 1. 将仓库推送到 GitHub，启用 GitHub Actions。
-2. 在 Visual Studio Marketplace 创建或选择发布者。用有权发布该扩展的账号创建 Azure DevOps 个人访问令牌，选择 **Marketplace → Publish** 权限。[发布者管理](https://marketplace.visualstudio.com/manage) · [令牌权限说明](https://learn.microsoft.com/en-us/azure/devops/release-notes/2022/general/sprint-211-update)
-3. 在 GitHub 仓库的 **Settings → Secrets and variables → Actions** 中添加以下两项。
+2. 在 Visual Studio Marketplace 创建或选择发布者，打开 **Trusted Publishing → Create**。填写策略名称、GitHub 仓库所有者和仓库名，**Workflow** 填 `release.yml`，**Environment** 留空。[发布者管理](https://marketplace.visualstudio.com/manage) · [微软配置指南](https://developer.microsoft.com/blog/trusted-publishing-visual-studio-marketplace/)
+3. 在 GitHub 仓库的 **Settings → Secrets and variables → Actions → Variables** 中添加仓库变量 `VS_MARKETPLACE_PUBLISHER`，值为上述发布者的 **Publisher ID**。发布时 GitHub Actions 通过 OIDC 获取短期凭据，无需保存个人访问令牌。[VSIX 可信发布说明](https://learn.microsoft.com/en-us/visualstudio/extensibility/walkthrough-publishing-a-visual-studio-extension-via-command-line#publish-from-github-actions-with-trusted-publishing)
 
-| 类型 | 名称 | 值 |
-| --- | --- | --- |
-| Repository variable | `VS_MARKETPLACE_PUBLISHER` | Marketplace 的 Publisher ID，可从发布者管理页查看 |
-| Repository secret | `VS_MARKETPLACE_PAT` | 上一步创建的令牌 |
+私有仓库需在创建策略后 48 小时内推送首个发布标签，首次成功交换令牌后策略会永久激活。若已过期，可在 Marketplace 重新开启。[策略激活说明](https://developer.microsoft.com/blog/trusted-publishing-visual-studio-marketplace/#github-policy-lifecycle)
 
 Marketplace 上的扩展标识为 `<Publisher ID>.OrcaCodeNotes`，公开展示名为 **Orca Code Notes**。商店介绍见 [Marketplace 说明](docs/marketplace.md)。
 
