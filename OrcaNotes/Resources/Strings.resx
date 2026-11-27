@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AppName" xml:space="preserve"><value>Orca Code Notes</value></data>
+  <data name="SendWorkspace" xml:space="preserve"><value>Send Workspace Notes to Orca</value></data>
+  <data name="WorkspaceMenu" xml:space="preserve"><value>Send Workspace Notes to Orca…</value></data>
+  <data name="SendNoteWindow" xml:space="preserve"><value>Send Code Note to Orca</value></data>
+  <data name="Recipient" xml:space="preserve"><value>Orca AI recipient</value></data>
+  <data name="NotesToSend" xml:space="preserve"><value>Notes to send</value></data>
+  <data name="Send" xml:space="preserve"><value>Send</value></data>
+  <data name="SendOne" xml:space="preserve"><value>Send 1 note</value></data>
+  <data name="SendCount" xml:space="preserve"><value>Send {0} notes</value></data>
+  <data name="Close" xml:space="preserve"><value>Close</value></data>
+  <data name="Loading" xml:space="preserve"><value>Loading the workspace and AI sessions…</value></data>
+  <data name="NoNotes" xml:space="preserve"><value>No pending notes in this workspace.</value></data>
+  <data name="NoTargets" xml:space="preserve"><value>Start an AI session in this Orca workspace to send notes.</value></data>
+  <data name="SelectTarget" xml:space="preserve"><value>Choose an Orca session to receive the notes.</value></data>
+  <data name="WorkspacePath" xml:space="preserve"><value>Workspace: {0}</value></data>
+  <data name="RowHeading" xml:space="preserve"><value>{0}  ·  Line {1}</value></data>
+  <data name="RowRangeHeading" xml:space="preserve"><value>{0}  ·  Lines {1}</value></data>
+  <data name="CheckBeforeResending" xml:space="preserve"><value>Check the previous delivery in Orca before selecting this note again.</value></data>
+  <data name="Sending" xml:space="preserve"><value>Checking the session and sending notes…</value></data>
+  <data name="CheckDelivery" xml:space="preserve"><value>Check delivery in Orca before selecting these notes to send again.</value></data>
+  <data name="CleanupError" xml:space="preserve"><value>{0} Could not remove local notes: {1}</value></data>
+  <data name="CannotReadNotes" xml:space="preserve"><value>Could not read Orca notes</value></data>
+  <data name="DiscardChanges" xml:space="preserve"><value>Discard your changes to this note?</value></data>
+  <data name="NoteHint" xml:space="preserve"><value>Write a note for Orca AI. Press Ctrl+Enter to save.</value></data>
+  <data name="NoteBody" xml:space="preserve"><value>Note text</value></data>
+  <data name="LineHeading" xml:space="preserve"><value>Line {0}</value></data>
+  <data name="LinesHeading" xml:space="preserve"><value>Lines {0}</value></data>
+  <data name="CheckPreviousDelivery" xml:space="preserve"><value> · Check the previous delivery in Orca</value></data>
+  <data name="EnterNote" xml:space="preserve"><value>Enter a note first.</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="SaveNote" xml:space="preserve"><value>Save note</value></data>
+  <data name="AddNote" xml:space="preserve"><value>Add note</value></data>
+  <data name="SavedHeading" xml:space="preserve"><value>Note · Line {0}</value></data>
+  <data name="SavedRangeHeading" xml:space="preserve"><value>Note · Lines {0}–{1}</value></data>
+  <data name="NeedsReview" xml:space="preserve"><value> · Check delivery</value></data>
+  <data name="SendThisNote" xml:space="preserve"><value>Send this note</value></data>
+  <data name="SendNote" xml:space="preserve"><value>Send note</value></data>
+  <data name="EditNote" xml:space="preserve"><value>Edit note</value></data>
+  <data name="DeleteNote" xml:space="preserve"><value>Delete note</value></data>
+  <data name="AddAtLine" xml:space="preserve"><value>Line {0} · Add Orca note</value></data>
+  <data name="EditAtLine" xml:space="preserve"><value>Line {0} · Edit Orca note</value></data>
+  <data name="NoteChanged" xml:space="preserve"><value>This note changed in another window. Reopen it and try again.</value></data>
+  <data name="StoreBusy" xml:space="preserve"><value>Another window is using the notes. Try again shortly.</value></data>
+  <data name="TerminalNeedsApproval" xml:space="preserve"><value>The terminal is waiting for approval. Respond to the prompt and send the notes again.</value></data>
+  <data name="TerminalRefused" xml:space="preserve"><value>The terminal declined the input. The notes are still pending.</value></data>
+  <data name="OpenWorkspaceInOrca" xml:space="preserve"><value>Open this file’s workspace in Orca first.</value></data>
+  <data name="ChatTarget" xml:space="preserve"><value>Chat (inbox) · {0}</value></data>
+  <data name="TerminalTarget" xml:space="preserve"><value>{0} terminal (direct) · {1}</value></data>
+  <data name="NewSessionTarget" xml:space="preserve"><value>New session · {0}</value></data>
+  <data name="SessionChanged" xml:space="preserve"><value>The selected session has changed. Reopen the send window.</value></data>
+  <data name="NoSender" xml:space="preserve"><value>Orca did not return an address for the sending terminal.</value></data>
+  <data name="CheckNewSession" xml:space="preserve"><value>Check in Orca whether the new session received the first message.</value></data>
+  <data name="SentToNewSession" xml:space="preserve"><value>Notes submitted to the new session.</value></data>
+  <data name="NoMessageId" xml:space="preserve"><value>No message ID was returned. Check delivery in Orca.</value></data>
+  <data name="SentToInbox" xml:space="preserve"><value>Notes delivered to the selected AI’s inbox.</value></data>
+  <data name="NoTerminalReceipt" xml:space="preserve"><value>No input receipt was returned for the selected terminal.</value></data>
+  <data name="SubmitWithheld" xml:space="preserve"><value>Notes pasted. Orca paused before pressing Enter. Check the terminal input or approval prompt.</value></data>
+  <data name="TerminalReplaced" xml:space="preserve"><value>The selected terminal was replaced. Check whether the original terminal received the notes.</value></data>
+  <data name="SentTurnStarted" xml:space="preserve"><value>Notes sent to the selected terminal. The AI has started processing them.</value></data>
+  <data name="SentAwaitingTurn" xml:space="preserve"><value>Notes sent to the selected terminal. The AI has not yet been observed processing them.</value></data>
+  <data name="EnterUnconfirmed" xml:space="preserve"><value>The terminal received the input. Check whether it was submitted.</value></data>
+  <data name="CliMissing" xml:space="preserve"><value>Could not find orca.exe. Install Orca and enable its CLI.</value></data>
+  <data name="NullCharacter" xml:space="preserve"><value>Remove the null character from the note before sending it to Orca.</value></data>
+  <data name="PromptTooLong" xml:space="preserve"><value>The notes exceed the Windows command-line limit. Select fewer notes or shorten them.</value></data>
+  <data name="CliTimeout" xml:space="preserve"><value>The Orca CLI timed out.</value></data>
+  <data name="CliFailed" xml:space="preserve"><value>The Orca command failed. Check the workspace and make sure Orca is running.</value></data>
+  <data name="InvalidResponse" xml:space="preserve"><value>Orca returned an unrecognized response.</value></data>
+  <data name="WorkspaceServicesUnavailable" xml:space="preserve"><value>Could not access Visual Studio workspace services.</value></data>
+  <data name="OpenDocumentOrSolution" xml:space="preserve"><value>Open a code file or solution from an Orca workspace first.</value></data>
+</root>

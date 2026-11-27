@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable">
+  <Include href="Toolbar.vsct" />
+  <Commands package="OrcaNotesPackage">
+    <Buttons>
+      <Button guid="OrcaNotesCommands" id="SendWorkspaceNotes" priority="0x0100" type="Button">
+        <Parent guid="OrcaNotesCommands" id="ToolbarGroup" />
+        <Icon guid="OrcaNotesIcons" id="PaperPlane" />
+        <Strings>
+          <ButtonText>发送工作区备注到 Orca</ButtonText>
+          <ToolTipText>发送当前工作区的全部待发送备注到 Orca</ToolTipText>
+          <CanonicalName>OrcaNotes.SendWorkspaceNotes</CanonicalName>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+</CommandTable>

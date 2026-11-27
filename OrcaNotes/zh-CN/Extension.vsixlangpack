@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageLanguagePackManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <DisplayName>Orca 代码备注</DisplayName>
+    <Description>在代码行旁添加评审备注，将文件路径、行号和备注正文发给当前工作区的 Orca AI。</Description>
+  </Metadata>
+</PackageLanguagePackManifest>

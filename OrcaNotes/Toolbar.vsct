@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Commands package="OrcaNotesPackage">
+    <Groups>
+      <Group guid="OrcaNotesCommands" id="ToolbarGroup" priority="0xFFFF">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_TOOL_STANDARD" />
+      </Group>
+    </Groups>
+    <Bitmaps>
+      <Bitmap guid="OrcaNotesIcons" href="Resources/PaperPlane.png" usedList="PaperPlane" />
+    </Bitmaps>
+  </Commands>
+  <Symbols>
+    <GuidSymbol name="OrcaNotesPackage" value="{41367a20-e93f-42af-9222-77dc11c1772c}" />
+    <GuidSymbol name="OrcaNotesCommands" value="{ca505c10-91b2-4082-a704-2533f7e33738}">
+      <IDSymbol name="ToolbarGroup" value="0x1020" />
+      <IDSymbol name="SendWorkspaceNotes" value="0x0100" />
+    </GuidSymbol>
+    <GuidSymbol name="OrcaNotesIcons" value="{0ca31f90-d0b4-425a-be97-36368f6bb41d}">
+      <IDSymbol name="PaperPlane" value="1" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

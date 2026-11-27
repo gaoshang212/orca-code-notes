@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AppName" xml:space="preserve"><value>Orca 代码备注</value></data>
+  <data name="SendWorkspace" xml:space="preserve"><value>发送工作区备注到 Orca</value></data>
+  <data name="WorkspaceMenu" xml:space="preserve"><value>发送工作区备注到 Orca…</value></data>
+  <data name="SendNoteWindow" xml:space="preserve"><value>发送代码备注到 Orca</value></data>
+  <data name="Recipient" xml:space="preserve"><value>接收备注的 Orca AI</value></data>
+  <data name="NotesToSend" xml:space="preserve"><value>本次发送的备注</value></data>
+  <data name="Send" xml:space="preserve"><value>发送</value></data>
+  <data name="SendOne" xml:space="preserve"><value>发送 1 条备注</value></data>
+  <data name="SendCount" xml:space="preserve"><value>发送 {0} 条备注</value></data>
+  <data name="Close" xml:space="preserve"><value>关闭</value></data>
+  <data name="Loading" xml:space="preserve"><value>正在读取当前工作区和 AI 会话…</value></data>
+  <data name="NoNotes" xml:space="preserve"><value>当前工作区没有待发送的备注。</value></data>
+  <data name="NoTargets" xml:space="preserve"><value>Orca 中没有可用的 AI，请先在该工作区启动一个。</value></data>
+  <data name="SelectTarget" xml:space="preserve"><value>请选择接收备注的 Orca 窗口。</value></data>
+  <data name="WorkspacePath" xml:space="preserve"><value>工作区：{0}</value></data>
+  <data name="RowHeading" xml:space="preserve"><value>{0}  ·  行 {1}</value></data>
+  <data name="RowRangeHeading" xml:space="preserve"><value>{0}  ·  行 {1}</value></data>
+  <data name="CheckBeforeResending" xml:space="preserve"><value>上次投递待核对。确认需要重发后再勾选。</value></data>
+  <data name="Sending" xml:space="preserve"><value>正在确认会话并投递备注…</value></data>
+  <data name="CheckDelivery" xml:space="preserve"><value>请先在 Orca 中核对，再决定是否重新勾选发送。</value></data>
+  <data name="CleanupError" xml:space="preserve"><value>{0} 清理本地备注时遇到问题：{1}</value></data>
+  <data name="CannotReadNotes" xml:space="preserve"><value>无法读取 Orca 备注</value></data>
+  <data name="DiscardChanges" xml:space="preserve"><value>放弃正在编辑的备注？</value></data>
+  <data name="NoteHint" xml:space="preserve"><value>输入给 Orca AI 的备注，Ctrl+Enter 保存</value></data>
+  <data name="NoteBody" xml:space="preserve"><value>备注正文</value></data>
+  <data name="LineHeading" xml:space="preserve"><value>行 {0}</value></data>
+  <data name="LinesHeading" xml:space="preserve"><value>行 {0}</value></data>
+  <data name="CheckPreviousDelivery" xml:space="preserve"><value> · 请到 Orca 核对上次投递</value></data>
+  <data name="EnterNote" xml:space="preserve"><value>请先输入备注。</value></data>
+  <data name="Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="SaveNote" xml:space="preserve"><value>保存备注</value></data>
+  <data name="AddNote" xml:space="preserve"><value>添加备注</value></data>
+  <data name="SavedHeading" xml:space="preserve"><value>备注 第 {0} 行</value></data>
+  <data name="SavedRangeHeading" xml:space="preserve"><value>备注 第 {0}–{1} 行</value></data>
+  <data name="NeedsReview" xml:space="preserve"><value> · 待核对</value></data>
+  <data name="SendThisNote" xml:space="preserve"><value>发送这条备注</value></data>
+  <data name="SendNote" xml:space="preserve"><value>发送备注</value></data>
+  <data name="EditNote" xml:space="preserve"><value>修改备注</value></data>
+  <data name="DeleteNote" xml:space="preserve"><value>删除备注</value></data>
+  <data name="AddAtLine" xml:space="preserve"><value>{0} 行 · 添加 Orca 备注</value></data>
+  <data name="EditAtLine" xml:space="preserve"><value>{0} 行 · 编辑 Orca 备注</value></data>
+  <data name="NoteChanged" xml:space="preserve"><value>备注已在另一个窗口更改。请重新打开后再操作。</value></data>
+  <data name="StoreBusy" xml:space="preserve"><value>备注文件正在其他窗口中使用。</value></data>
+  <data name="TerminalNeedsApproval" xml:space="preserve"><value>终端正在等待操作确认。请处理该提示后再发送备注。</value></data>
+  <data name="TerminalRefused" xml:space="preserve"><value>终端已拒绝输入，备注仍在待发送列表中。</value></data>
+  <data name="OpenWorkspaceInOrca" xml:space="preserve"><value>请先在 Orca 中打开此文件所属的工作区。</value></data>
+  <data name="ChatTarget" xml:space="preserve"><value>Chat（收件箱） · {0}</value></data>
+  <data name="TerminalTarget" xml:space="preserve"><value>{0} 终端（直发） · {1}</value></data>
+  <data name="NewSessionTarget" xml:space="preserve"><value>新建会话 · {0}</value></data>
+  <data name="SessionChanged" xml:space="preserve"><value>所选会话已变化，请重新打开发送窗口。</value></data>
+  <data name="NoSender" xml:space="preserve"><value>Orca 未返回备注发送终端的地址。</value></data>
+  <data name="CheckNewSession" xml:space="preserve"><value>请在 Orca 核对新会话是否收到了首条消息。</value></data>
+  <data name="SentToNewSession" xml:space="preserve"><value>备注已提交至新会话。</value></data>
+  <data name="NoMessageId" xml:space="preserve"><value>未取得消息编号，请到 Orca 核对投递状态。</value></data>
+  <data name="SentToInbox" xml:space="preserve"><value>备注已投递至所选 AI 的收件箱。</value></data>
+  <data name="NoTerminalReceipt" xml:space="preserve"><value>未收到所选终端的输入回执。</value></data>
+  <data name="SubmitWithheld" xml:space="preserve"><value>备注已粘贴。Orca 暂停了回车，请检查目标窗口中的输入或确认提示。</value></data>
+  <data name="TerminalReplaced" xml:space="preserve"><value>所选终端已被替换，无法确认原窗口的提交状态。</value></data>
+  <data name="SentTurnStarted" xml:space="preserve"><value>备注已直接提交到所选终端，AI 已开始处理。</value></data>
+  <data name="SentAwaitingTurn" xml:space="preserve"><value>备注已直接提交到所选终端，尚未观察到 AI 开始处理。</value></data>
+  <data name="EnterUnconfirmed" xml:space="preserve"><value>终端已接收输入，暂未确认回车提交。请查看所选窗口。</value></data>
+  <data name="CliMissing" xml:space="preserve"><value>找不到 orca.exe。请安装 Orca 并启用 Orca CLI。</value></data>
+  <data name="NullCharacter" xml:space="preserve"><value>备注包含无法传给 Orca CLI 的空字符。请移除备注中的空字符。</value></data>
+  <data name="PromptTooLong" xml:space="preserve"><value>这批备注超过 Windows 单次直发长度。请减少勾选条数或缩短备注正文。</value></data>
+  <data name="CliTimeout" xml:space="preserve"><value>Orca CLI 响应超时。</value></data>
+  <data name="CliFailed" xml:space="preserve"><value>Orca 命令失败，请检查工作区和运行状态。</value></data>
+  <data name="InvalidResponse" xml:space="preserve"><value>Orca 返回了无法识别的结果。</value></data>
+  <data name="WorkspaceServicesUnavailable" xml:space="preserve"><value>无法获取 Visual Studio 工作区服务。</value></data>
+  <data name="OpenDocumentOrSolution" xml:space="preserve"><value>请先打开 Orca 工作区中的代码文件或解决方案。</value></data>
+</root>

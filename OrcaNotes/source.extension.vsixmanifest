@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="VsOrcaNotes.36312d9d-856a-4f65-bbf0-1cc027bcfa37" Version="0.1.9" Language="en-US" Publisher="VS Orca Notes" />
+    <DisplayName>Orca Code Notes</DisplayName>
+    <Description>Add review notes beside your code and send file paths, line numbers, and comments to an Orca AI session in the current workspace.</Description>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.14,19.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies />
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.14,19.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="OrcaNotes.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="OrcaNotes.dll" />
+  </Assets>
+</PackageManifest>

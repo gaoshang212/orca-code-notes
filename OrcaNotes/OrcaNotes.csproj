@@ -1,0 +1,46 @@
+<Project>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>OrcaNotes</RootNamespace>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <DeployExtension>false</DeployExtension>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <CreateVsixContainer>true</CreateVsixContainer>
+    <UseCodebase>true</UseCodebase>
+  </PropertyGroup>
+  <ItemGroup>
+    <SourceVsixManifest Include="source.extension.vsixmanifest" />
+    <VSCTCompile Include="Commands.vsct" ResourceName="Menus.ctmenu" />
+    <VSCTCompile Include="Commands.zh-CN.vsct" ResourceName="Menus.ctmenu" />
+    <EmbeddedResource Update="Resources\Strings.resx" MergeWithCTO="true"
+                      StronglyTypedLanguage="CSharp" StronglyTypedClassName="Strings"
+                      StronglyTypedNamespace="OrcaNotes.Resources" />
+    <EmbeddedResource Update="Resources\Strings.zh-CN.resx" MergeWithCTO="true" />
+    <Content Include="zh-CN\Extension.vsixlangpack" IncludeInVSIX="true" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <PackageReference Include="Microsoft.VisualStudio.Text.UI.Wpf" Version="17.14.249" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Language.Intellisense" Version="17.14.249" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Editor" Version="17.14.249" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.14.40264" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.14.2142" PrivateAssets="all" />
+  </ItemGroup>
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+  <Import Project="$(VsSDKInstall)\Microsoft.VsSDK.targets" Condition="Exists('$(VsSDKInstall)\Microsoft.VsSDK.targets')" />
+  <!-- Classify the neutral command table as English during the VSSDK merge so it can
+       share the Menus.ctmenu key with the Chinese satellite (VSSDK1006). -->
+  <Target Name="AssignEnglishMenuCulture" BeforeTargets="MergeCtoResource">
+    <ItemGroup>
+      <_GeneratedCTOFilesWithCulture Include="@(_GeneratedCTOFilesWithNoCulture)" Culture="en" WithCulture="true" />
+      <_GeneratedCTOFilesWithNoCulture Remove="@(_GeneratedCTOFilesWithNoCulture)" />
+      <_ResourcesToMergeWithCTOWithCultureMetadata Condition="'%(WithCulture)' != 'true'" Culture="en" WithCulture="true" />
+    </ItemGroup>
+  </Target>
+</Project>
