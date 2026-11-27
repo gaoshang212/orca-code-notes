@@ -10,7 +10,11 @@ Open the same project in Orca and Visual Studio. Hover over a line and click **+
 
 ## Send notes to Orca
 
-Click the paper plane on a note card to send one comment. To send several, click the blue paper plane on Visual Studio’s **Standard** toolbar.
+To send **one note**, click the paper plane just to the left of the pencil on its card. The send dialog opens with only that note.
+
+![The saved note on lines 17–18, with the paper plane highlighted and its tooltip visible.](https://raw.githubusercontent.com/gaoshang212/orca-code-notes/main/docs/send-single-note.png)
+
+To send **several notes**, click the blue paper plane on Visual Studio’s **Standard** toolbar.
 
 ![The blue paper plane at the end of the Visual Studio Standard toolbar.](https://raw.githubusercontent.com/gaoshang212/orca-code-notes/v0.1.10/docs/preview.png)
 
