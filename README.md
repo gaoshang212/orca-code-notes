@@ -48,7 +48,9 @@ msbuild VsOrcaNotes.sln -restore -p:Configuration=Release
 
 1. 将仓库推送到 GitHub，启用 GitHub Actions。
 2. 在 Visual Studio Marketplace 创建或选择发布者，打开 **Trusted Publishing → Create**。填写策略名称、GitHub 仓库所有者和仓库名，**Workflow** 填 `release.yml`，**Environment** 留空。[发布者管理](https://marketplace.visualstudio.com/manage) · [微软配置指南](https://developer.microsoft.com/blog/trusted-publishing-visual-studio-marketplace/)
-3. 在 GitHub 仓库的 **Settings → Secrets and variables → Actions → Variables** 中添加仓库变量 `VS_MARKETPLACE_PUBLISHER`，值为上述发布者的 **Publisher ID**。发布时 GitHub Actions 通过 OIDC 获取短期凭据，无需保存个人访问令牌。[VSIX 可信发布说明](https://learn.microsoft.com/en-us/visualstudio/extensibility/walkthrough-publishing-a-visual-studio-extension-via-command-line#publish-from-github-actions-with-trusted-publishing)
+3. 点击 GitHub 仓库顶部的 **Settings**，在左侧 **Security** 区域展开 **Secrets and variables**，选择 **Actions**。在右侧页面切到 **Variables**，点击 **New repository variable**。**Name** 填 `VS_MARKETPLACE_PUBLISHER`，**Value** 填上述发布者的 **Publisher ID**，然后点击 **Add variable**。[GitHub 仓库变量设置指南](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables#creating-configuration-variables-for-a-repository)
+
+发布时 GitHub Actions 通过 OIDC 获取短期凭据，无需保存个人访问令牌。[VSIX 可信发布说明](https://learn.microsoft.com/en-us/visualstudio/extensibility/walkthrough-publishing-a-visual-studio-extension-via-command-line#publish-from-github-actions-with-trusted-publishing)
 
 私有仓库需在创建策略后 48 小时内推送首个发布标签，首次成功交换令牌后策略会永久激活。若已过期，可在 Marketplace 重新开启。[策略激活说明](https://developer.microsoft.com/blog/trusted-publishing-visual-studio-marketplace/#github-policy-lifecycle)
 
